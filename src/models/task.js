@@ -17,7 +17,14 @@ module.exports = (sequelize, DataTypes) => {
     title: DataTypes.STRING,
     description: DataTypes.TEXT,
     status: DataTypes.ENUM('open', 'doing', 'done'),
-    userId: DataTypes.INTEGER
+    userId: { 
+      type: DataTypes.INTEGER,
+      allowNull : false,
+      references: {
+        model:'User',
+        key:'id'
+      } 
+    }
   }, {
     sequelize,
     modelName: 'Task',

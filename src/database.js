@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 //Connection database
 const Sequelize = require('sequelize');
 
@@ -14,13 +12,4 @@ const database = {
 module.exports = new Sequelize(database.name, database.username, database.password, {
     host: database.host,
     dialect: database.dialect,
-    define: {
-      timestamps: false
-    },
-    pool: {
-        max: 5,
-        min: 0,
-        acquire: 30000,
-        idle: 10000
-      }
   });
