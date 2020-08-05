@@ -6,13 +6,13 @@ const cors = require('cors')
 const userRoutes = require('./routes/users.routes')
 const taksRoutes = require('./routes/tasks.routes')
 
+app.use(cors())
 //Config
 app.set('PORT', process.env.PORT || 8000)
 
 //Middlewares
 app.use(express.json())
 app.use(morgan('dev'))
-app.use(cors())
 
 //routes
 app.use('/users', userRoutes)
