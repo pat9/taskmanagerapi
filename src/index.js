@@ -12,7 +12,7 @@ app.set('PORT', process.env.PORT || 8000)
 //Middlewares
 app.use(express.json())
 app.use(morgan('dev'))
-app.use(cors("*"))
+app.use(cors())
 
 //routes
 app.use('/users', userRoutes)
