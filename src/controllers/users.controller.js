@@ -15,7 +15,7 @@ async function register( req, res ) {
                 name
             })
             const data = await User.save()
-            res.json({ data })
+            res.json( data )
         }catch{
             res.status(500).end()
         }
@@ -28,8 +28,7 @@ async function login( req, res ) {
     const user = await Users.findOne({ where: { email }})
     bcrypt.compare(password , user.password, function(err, result) {
         if(result) res.json(user)
-
-        res.status(404).end()
+        else res.status(404).end()
     });
 
 }

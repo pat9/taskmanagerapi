@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express();
 const morgan = require('morgan')
+const cors = require('cors')
 
 const userRoutes = require('./routes/users.routes')
 const taksRoutes = require('./routes/tasks.routes')
@@ -9,8 +10,9 @@ const taksRoutes = require('./routes/tasks.routes')
 app.set('PORT', process.env.PORT || 8000)
 
 //Middlewares
-app.use(morgan('dev'))
 app.use(express.json())
+app.use(morgan('dev'))
+app.use(cors("*"))
 
 //routes
 app.use('/users', userRoutes)

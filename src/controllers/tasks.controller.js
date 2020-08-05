@@ -38,8 +38,17 @@ async function update(req, res) {
     res.status(200).json(data)
 }
 
+async function destroy(req, res) {
+    const { id } = req.params
+
+    await Tasks.destroy({where:{id}});
+
+    res.status(200).end()
+}
+
 module.exports ={ 
     create,
     update,
-    findByUser
+    findByUser,
+    destroy
 }
